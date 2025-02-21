@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Cursor : MonoBehaviour
+public class AimCursor : MonoBehaviour
 {
     Vector3 pos;
     public float speed = 1f;
-
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     void Update()
     {
         pos = Input.mousePosition;
