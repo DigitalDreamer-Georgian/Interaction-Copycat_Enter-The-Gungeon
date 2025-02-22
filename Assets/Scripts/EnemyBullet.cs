@@ -3,20 +3,19 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public int dmg = 1;
-    public LayerMask whatIsPlayer;  // Layer mask for the player
+    public LayerMask whatIsPlayer; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the bullet collides with the player
         if (((1 << collision.gameObject.layer) & whatIsPlayer) != 0)
         {
             PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(dmg);  // Apply damage to the player
+                playerHealth.TakeDamage(dmg);
             }
 
-            Destroy(gameObject);  // Destroy the bullet
+            Destroy(gameObject); 
         }
     }
 }
