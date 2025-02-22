@@ -22,7 +22,7 @@ public class DodgeRoll : MonoBehaviour
         {
             input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !Rolling)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !Rolling)
         {
             StartCoroutine(RollDodge());
         }
@@ -41,7 +41,7 @@ public class DodgeRoll : MonoBehaviour
     private IEnumerator Rotate()
     {
         float TimeAmount = 0f;
-        float rotationSpeed = 180f / rollDuration;
+        float rotationSpeed = 360f / rollDuration;
         while (TimeAmount < rollDuration)
         {
             transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
